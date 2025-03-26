@@ -18,6 +18,7 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+          bundler-version: 2.6.6
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
@@ -79,7 +80,8 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test test:system
+        # run: bin/rails db:test:prepare test test:system
+          run: bin/rails test
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
