@@ -116,7 +116,6 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.6.1)
     drb (2.2.1)
-    error_highlight (0.7.0)
     erubi (1.13.1)
     execjs (2.10.0)
     ffi (1.17.1-aarch64-linux-gnu)
@@ -412,7 +411,6 @@ DEPENDENCIES
   cssbundling-rails
   dartsass-rails
   debug
-  error_highlight (>= 0.4.0)
   figaro (~> 1.2)
   httparty (~> 0.18.1)
   jbuilder

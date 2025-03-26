@@ -68,7 +68,7 @@ group :development do
   gem "web-console"
 
   # Fine-grained error highlighting
-  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  # gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
 # Test only gems (system testing)
