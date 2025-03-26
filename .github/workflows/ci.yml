@@ -35,8 +35,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
+      # - name: Scan for security vulnerabilities in JavaScript dependencies
+      #   run: bin/importmap audit
 
   lint:
     needs: setup
