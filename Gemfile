@@ -1,54 +1,81 @@
 source "https://rubygems.org"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+# Rails version
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+
+# Asset pipeline
 gem "sprockets-rails"
-# Use sqlite3 as the database for Active Record
+
+# Database (sqlite3)
 gem "sqlite3", ">= 1.4"
-# Use the Puma web server [https://github.com/puma/puma]
+
+# Web server
 gem "puma", ">= 5.0"
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+
+# JSON API Builder
 gem "jbuilder"
-# Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# Active Storage image processing
 # gem "image_processing", "~> 1.2"
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+# Redis (for Action Cable in production)
+# gem "redis", ">= 4.0.1"
+# gem "kredis"
 
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+# Timezone support for Windows and JRuby
+gem "tzinfo-data", platforms: %i[windows jruby]
+
+# Reduces boot times through caching
+gem "bootsnap", require: false
+
+# External HTTP requests
+gem 'httparty', '~> 0.18.1'
+
+# Front-end dependencies
+gem 'bootstrap', '~> 5.3', '>= 5.3.3'
+gem 'jquery-rails'
+gem 'sassc-rails'
+gem 'dartsass-rails'
+gem 'cssbundling-rails'
+
+# Configuration management
+gem 'figaro', '~> 1.2'
+
+# Grouped Gems for Development and Test Environments
+group :development, :test do
+  # Debugging in development (Rails console)
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+
+  # Static analysis for security vulnerabilities
   gem "brakeman", require: false
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  # Ruby styling and linting
   gem "rubocop-rails-omakase", require: false
-end
 
-group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
-
-  # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-  gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
-end
-
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # Testing libraries
+  gem 'rspec-rails'
+  gem 'pry'
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'vcr'
+  gem 'webmock'
+  gem "rails-controller-testing"
+end
+
+# Development only gems (console and error highlighting)
+group :development do
+  # Use console on exception pages
+  gem "web-console"
+
+  # Fine-grained error highlighting
+  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+end
+
+# Test only gems (system testing)
+group :test do
+  # Use system testing
+  # gem "capybara" # Already included in development/test
+  # gem "selenium-webdriver" # Already included in development/test
+  # gem 'vcr' # Already included in development/test
+  # gem 'webmock' # Already included in development/test
 end

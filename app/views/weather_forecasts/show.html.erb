@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <h2>Weather Forecast</h2>
+  <form action="/weather_forecasts" method="get">
+    <div class="mb-3">
+      <label for="zip_code" class="form-label">Enter Zip Code</label>
+      <input type="text" class="form-control" id="zip_code" name="zip_code" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Weather</button>
+  </form>
+
+  <% if @weather.present? %>
+    <div class="mt-4">
+      <h3>Current Weather</h3>
+      <p>Temperature: <%= @weather[:temperature] %> °C</p>
+      <p>High: <%= @weather[:high] %> °C</p>
+      <p>Low: <%= @weather[:low] %> °C</p>
+      <p>Description: <%= @weather[:description] %></p>
+      <p>CityName: <%=@weather[:cityName]%> </p>
+    
+      <% if @from_cache %>
+        <div class="alert alert-info mt-3">Data retrieved from cache</div>
+      <% end %>
+    </div>
+  <% end %>
+  <% if  @flash_msg.present?  && params[:zip_code].present?  %>
+    <div class="alert <%=  @flash_msg.include?('No data') ? 'alert-danger' : 'alert-success' %> mt-3" role="alert">
+      <%=  @flash_msg %>
+    </div>
+  <% end %>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+      var alert = document.querySelector(".alert");
+      if (alert) {
+        alert.style.display = "none"; 
+      }
+    }, 3000); //showing flash msg for 1 second
+  });
+</script>
