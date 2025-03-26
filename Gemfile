@@ -29,17 +29,17 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
 # External HTTP requests
-gem 'httparty', '~> 0.18.1'
+gem "httparty", "~> 0.18.1"
 
 # Front-end dependencies
-gem 'bootstrap', '~> 5.3', '>= 5.3.3'
-gem 'jquery-rails'
-gem 'sassc-rails'
-gem 'dartsass-rails'
-gem 'cssbundling-rails'
+gem "bootstrap", '~> 5.3', '>= 5.3.3'
+gem "jquery-rails"
+gem "sassc-rails"
+gem "dartsass-rails"
+gem "cssbundling-rails"
 
 # Configuration management
-gem 'figaro', '~> 1.2'
+gem "figaro", "~> 1.2"
 
 # Grouped Gems for Development and Test Environments
 group :development, :test do
@@ -53,12 +53,12 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # Testing libraries
-  gem 'rspec-rails'
-  gem 'pry'
+  gem "rspec-rails"
+  gem "pry"
   gem "capybara"
   gem "selenium-webdriver"
-  gem 'vcr'
-  gem 'webmock'
+  gem "vcr"
+  gem "webmock"
   gem "rails-controller-testing"
 end
 
